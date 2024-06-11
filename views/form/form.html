@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>LocalFood</title>
+</head>
+<style>
+    .background {
+        transition: background-image 2s ease-in-out;
+    }
+</style>
+
+<body class="font-mono bg-indigo-950">
+    <!-- Container -->
+    <div class="container mx-auto">
+        <div class="flex justify-center px-6 my-12">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div id="image-section"
+                    class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg transition-bg-image">
+                </div>
+                <!-- Col -->
+                <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <h3 class="pt-4 text-2xl text-center">Form Pendaftaran</h3>
+                    <form action="/formArtikel" method="post" enctype="multipart/form-data" class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                        <div class="mb-4">
+                            <label for="judul" class="block text-gray-700">Judul</label>
+                            <input type="text" name="judul" id="judul" class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
+                        </div>
+                        <div class="mb-4">
+                            <label for="isi" class="block text-gray-700">Isi</label>
+                            <textarea name="isi" id="isi" class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="foto" class="block text-gray-700">Foto</label>
+                            <input type="file" name="foto" id="foto" class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
+                        </div>
+                        <div class="mb-4">
+                            <label for="alamat" class="block text-gray-700">Alamat</label>
+                            <input type="text" name="alamat" id="alamat" class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
+                        </div>
+                        <div class="mb-4">
+                            <label for="maps" class="block text-gray-700">Maps</label>
+                            <input type="text" name="maps" id="maps" class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" placeholder="Sematkan tautan Google Maps" />
+                        </div>
+                        <div class="mb-6 text-center">
+                            <button type="submit" class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline">
+                                Kirim
+                            </button>
+                            <a href="/" class="block mt-4 w-full px-4 py-2 font-bold text-white bg-green-500 rounded-full text-center hover:bg-green-700 focus:outline-none focus:shadow-outline">
+                                Kembali
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const backgrounds = [
+            'url(/img_background/b1.jpg)',
+            'url(/img_background/b2.jpg)',
+            'url(/img_background/b3.jpg)',
+            'url(/img_background/b4.jpg)',
+            'url(/img_background/b5.jpg)'
+            // Tambahkan lebih banyak URL gambar sesuai kebutuhan
+        ];
+
+        let currentBackground = 0;
+
+        function changeBackground() {
+            currentBackground = (currentBackground + 1) % backgrounds.length;
+            document.getElementById('image-section').style.backgroundImage = backgrounds[currentBackground];
+        }
+
+        setInterval(changeBackground, 5000);
+        window.onload = changeBackground;
+    </script>
+</body>
+
+</html>

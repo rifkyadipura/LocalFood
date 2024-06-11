@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>LocalFood</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <div>
+          <span class="text-2xl font-bold text-purple-600">LocalFood</span>
+        </div>
+
+        <div class="hidden sm:flex sm:items-center">
+          <a href="/" class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Home</a>
+          <a href="/listArtikel" class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">List Market</a>
+        </div>
+
+        <div class="hidden sm:flex sm:items-center">
+          <a href="/formArtikel" class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 
+                    hover:border-purple-600">Daftarkan</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Body1 -->
+  <div
+    class="relative flex justify-center items-center h-full bg-cover bg-center transition-opacity duration-200 ease-in-out opacity-100"
+    id="background">
+    <div class="text-left text-white mt-48 p-6 bg-black bg-opacity-50 rounded-lg">
+      <h1 class="text-violet-400 text-6xl font-semibold leading-normal drop-shadow-lg">
+        LocalFood X UMKM <br />
+      </h1>
+      <p class="drop-shadow-lg">
+        Temukan dan dukung UMKM lokal di sekitar Anda dengan mudah! <br />
+        Aplikasi kami membantu Anda menjelajahi berbagai bisnis lokal, <br />
+        Bergabunglah sekarang dan mulai perjalanan Anda dalam mendukung UMKM lokal!
+      </p>
+    </div>
+  </div>
+
+  <!-- Body2 -->
+  <section class="min-h-screen bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap">
+        <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-1 shadow-lg rounded-lg">
+            <div class="px-4 flex-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center mt-16">
+        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+          <h3 class="text-3xl mb-2 font-semibold leading-normal">
+            Layanan Lokal Terbaik
+          </h3>
+          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+            Temukan yang terbaik dari apa yang ditawarkan UMKM lokal Anda. Mulai dari kerajinan
+            tangan hingga makanan gourmet, jelajahi keragaman dan kreativitas bisnis di dekat Anda.
+            Mendukung usaha lokal tidak hanya meningkatkan komunitas tetapi juga membawa Anda lebih
+            dekat dengan budaya kampus.
+          </p>
+          <a href="#" class="font-bold text-blueGray-700 mt-8">Selengkapnya</a>
+        </div>
+        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg bg-pink-500">
+            <img alt="..."
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80"
+              class="w-full align-middle rounded-t-lg">
+            <blockquote class="relative p-8 mb-4">
+              <h4 class="text-xl font-bold text-black">
+                Temukan UMKM Lokal Disekitarmu
+              </h4>
+              <p class="text-md font-light mt-2 text-black">
+                Jelajahi dan temukan UMKM lokal di sekitarmu dengan mudah! Aplikasi web kami
+                membantu kamu mendukung bisnis lokal dan menemukan produk unik. Bergabunglah
+                sekarang dan mulai perjalananmu dalam mendukung UMKM lokal!
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // script.js
+    document.addEventListener("DOMContentLoaded", function () {
+      const images = [
+        'url(/img_background/ukm1.jpg)',
+        'url(/img_background/ukm2.jpg)',
+        'url(/img_background/ukm3.jpg)',
+        'url(/img_background/ukm4.jpg)',
+        'url(/img_background/ukm5.jpg)',
+        'url(/img_background/ukm6.jpg)'
+      ];
+
+      let currentIndex = 0;
+      const backgroundElement = document.getElementById('background');
+
+      function changeBackground() {
+        currentIndex = (currentIndex + 1) % images.length;
+        backgroundElement.style.backgroundImage = images[currentIndex];
+      }
+
+      setInterval(changeBackground, 6000); // Ganti gambar setiap 6 detik
+
+      // Set gambar awal
+      backgroundElement.style.backgroundImage = images[currentIndex];
+    });
+  </script>
+</body>
+
+</html>
