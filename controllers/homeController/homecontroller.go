@@ -1,4 +1,4 @@
-package homeController
+package homecontroller
 
 import (
 	"html/template"

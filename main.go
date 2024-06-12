@@ -4,7 +4,7 @@ import (
 	"LocalFood/config"
 	"LocalFood/controllers/artikelcontroller"
 	"LocalFood/controllers/formcontroller"
-	homecontroller "LocalFood/controllers/homeController"
+	"LocalFood/controllers/homecontroller"
 	"log"
 	"net/http"
 )
