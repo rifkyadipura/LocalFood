@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>LocalFood</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white shadow">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <div>
+                    <span class="text-2xl font-bold text-purple-600">LocalFood</span>
+                </div>
+
+                <!-- Button Daftarkan -->
+                <div class="hidden sm:flex sm:items-center navbar-buttons">
+                    <a href="/formArtikel" class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Daftarkan</a>
+                    <a href="/logout" class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Body1 -->
+    <section class="p-4 lg:p-8 bg-gray-400 text-gray-800">
+        <h1 class="text-2xl font-extrabold text-purple-700 bg-white p-4 rounded-lg shadow-lg border-2 border-purple-600 mb-8 hover:bg-purple-600 hover:text-white transition duration-300">Selamat datang {{.Username}}</h1>
+        <div class="container mx-auto space-y-12">
+            {{ range .Artikel }}
+            <div class="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+                <img src="{{ .Foto }}" alt="{{ .Foto }}" class="h-80 dark:bg-gray-500 aspect-video" onerror="this.onerror=null; this.src='/uploads/placeholder.png';" />
+                <div class="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
+                    <h2>Saat ini status artikel yaitu <b>{{ .Status }}</b></h2>
+                    <h3 class="text-3xl font-bold">{{ .Judul }}</h3>
+                    <p class="my-6 dark:text-gray-600"><b>{{ .CreatedAt }}</b> <br />
+                        {{ .Isi }} <br />
+                        {{ .Alamat }}
+                    </p>
+                    <a href="{{ .Maps }}" target="_blank"><button type="button" class="self-start">Lokasi</button></a>
+                </div>
+            </div>
+            {{ end }}
+    </section>
+</body>
+</html>

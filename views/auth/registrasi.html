@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalFood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+    </style>
+</head>
+
+<body class="font-mono bg-purple-700">
+    <!-- Container -->
+    <div class="container mx-auto">
+        <div class="flex justify-center px-6 my-12">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+                    style="background-image: url('Images/Baju7.jpg')"></div>
+                <!-- Col -->
+                <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <h3 class="pt-4 text-2xl text-center">Create an Account!</h3>
+                    <form action="/registrasi" method="post" enctype="multipart/form-data" id="registerForm" class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                                Email
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                type="email" id="email" name="email" placeholder="Email" required />
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">
+                                Username
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                type="text" id="username" name="username" placeholder="Username" required />
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+                                Password
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                type="password" id="password" name="password" placeholder="******************" required />
+                        </div>
+                        <div class="mb-6 text-center">
+                            <button
+                                class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                                type="button" id="registerBtn">
+                                Register Account
+                            </button>
+                        </div>
+                        <hr class="mb-6 border-t" />
+                        <div class="text-center">
+                            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                href="/login">
+                                Already have an account? Login!
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-80 max-w-lg">
+            <div class="modal-header flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold text-gray-800">Confirm Registration</h2>
+                <span class="close text-gray-500 hover:text-gray-900 cursor-pointer">&times;</span>
+            </div>
+            <p class="text-gray-700 mb-4">Are you sure you want to register?</p>
+            <div class="modal-footer flex justify-between">
+                <button
+                    class="btn-yes bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline"
+                    id="yesBtn">Yes</button>
+                <button
+                    class="btn-no bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:shadow-outline"
+                    id="noBtn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Ensure the modal is hidden on initial load
+            document.getElementById('myModal').style.display = 'none';
+
+            // Event listener for the register button
+            document.getElementById('registerBtn').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                if (username === '' || password === '') {
+                    alert('Username and Password cannot be empty.');
+                } else if (password.length < 6) {
+                    alert('Password must be at least 6 characters long.');
+                } else {
+                    // Show the modal
+                    document.getElementById('myModal').style.display = 'flex';
+                }
+            });
+
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName('close')[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = 'none';
+            }
+
+            // When the user clicks on "No", close the modal
+            document.getElementById('noBtn').addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+
+            // When the user clicks on "Yes", submit the form and redirect to login
+            document.getElementById('yesBtn').addEventListener('click', function () {
+                document.getElementById('registerForm').submit();
+            });
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

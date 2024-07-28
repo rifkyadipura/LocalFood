@@ -25,8 +25,10 @@
                 </div>
 
                 <div class="hidden sm:flex sm:items-center">
-                    <a href="/formArtikel"
-                        class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Daftarkan</a>
+                    <a href="/login" class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 
+                    hover:border-purple-600">Login</a>
+                    <a href="/registrasi" class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 
+                    hover:border-purple-600">Registrasi</a>
                 </div>
 
                 <div class="sm:hidden cursor-pointer">
@@ -44,7 +46,8 @@
         <div class="container mx-auto space-y-12">
             {{ range .Artikel }}
             <div class="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                <img src="{{ .Foto }}" alt="{{ .Foto }}" class="h-80 dark:bg-gray-500 aspect-video" onerror="this.onerror=null; this.src='/uploads/placeholder.png';" />
+                <img src="{{ .Foto }}" alt="{{ .Foto }}" class="h-80 dark:bg-gray-500 aspect-video"
+                    onerror="this.onerror=null; this.src='/uploads/placeholder.png';" />
                 <div class="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
                     <h3 class="text-3xl font-bold">{{ .Judul }}</h3>
                     <p class="my-6 dark:text-gray-600"><b>{{ .CreatedAt }}</b> <br />
